@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: br.com.restassuredapitesting.runners.Alltests
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 18.531 s <<< FAILURE! - in br.com.restassuredapitesting.runners.Alltests
+validaSchemaDeUmaReservaEspecifica(br.com.restassuredapitesting.tests.booking.tests.GetBookingTest)  Time elapsed: 0.796 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <404>.
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validaSchemaDeUmaReservaEspecifica(GetBookingTest.java:56)
+
+validarErroNaAlteracaoDeUmaReservaUtilizandoTokenInvalido(br.com.restassuredapitesting.tests.booking.tests.PutBookingTest)  Time elapsed: 1.596 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <403>.
+
+	at br.com.restassuredapitesting.tests.booking.tests.PutBookingTest.validarErroNaAlteracaoDeUmaReservaUtilizandoTokenInvalido(PutBookingTest.java:55)
+
