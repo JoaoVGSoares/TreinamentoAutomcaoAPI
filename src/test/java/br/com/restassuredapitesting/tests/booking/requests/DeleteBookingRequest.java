@@ -14,16 +14,23 @@ public class DeleteBookingRequest {
                 .header("Cookie", token)
                 .when()
                 .delete("booking/" + id);
+    }
 
+    @Step("Deleta uma Reserva Específica com o Parâmetro Token Inválido")
+    public Response deleteBookingUsingInvalidToken(int id) {
+        return given()
+                .header("Content-Type", "application/json")
+                .header("Cookie", "token")
+                .when()
+                .delete("booking/" + id);
     }
 
     @Step("Deleta uma Reserva Específica com o Parâmetro Basic Auth")
-    public Response deleteBookingUsingBasicAuth(int id) {
+    public Response deleteBookingUsingBasicAuth(int id, String basicAuth) {
         return given()
                 .header("Content-Type", "application/json")
-                .header("Authorisation", "Basic YWRtaW46cGFzc3dvcmQxMjM=")
+                .header("Authorization", basicAuth)
                 .when()
                 .delete("booking/" + id);
-
     }
 }

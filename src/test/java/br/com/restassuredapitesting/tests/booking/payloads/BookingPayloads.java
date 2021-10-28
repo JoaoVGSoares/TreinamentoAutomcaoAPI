@@ -22,4 +22,22 @@ public class BookingPayloads {
         return payload;
     }
 
+    public static JSONObject payloadExtraParameter() {
+            Faker faker = new Faker();
+            JSONObject payloadExtraParameter = new JSONObject();
+            JSONObject bookingDates = new JSONObject();
+            bookingDates.put("checkin", "2018-01-01");
+            bookingDates.put("checkout", "2019-01-01");
+
+            payloadExtraParameter.put("firstname", faker.name().firstName());
+            payloadExtraParameter.put("lastname", faker.name().lastName());
+            payloadExtraParameter.put("campo1", "Valor campo 1");
+            payloadExtraParameter.put("totalprice", 111);
+            payloadExtraParameter.put("depositpaid", true);
+            payloadExtraParameter.put("bookingdates", bookingDates);
+            payloadExtraParameter.put("additionalneeds", "Breakfast");
+
+
+            return payloadExtraParameter;
+        }
 }

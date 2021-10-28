@@ -20,12 +20,14 @@ public class PostAuthTest extends BaseTest {
     @Test
     @Severity(SeverityLevel.BLOCKER)
     @Category({AllTests.class, SmokeTests.class})
-    @DisplayName("Retorna token para um usuário")
-    public void validaRetornoDeTokenParaUsuario(){
+    @DisplayName("Valida retorno do token para um usuário")
+    public void validateTokenReturn(){
+
         postAuthRequest.tokenReturn()
                 .then()
                 .statusCode(200)
-                .body("token", notNullValue());
-
+                .log().ifValidationFails()
+                .body("token", notNullValue())
+                .log().ifValidationFails();
     }
 }

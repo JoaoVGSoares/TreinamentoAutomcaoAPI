@@ -1,7 +1,10 @@
 package br.com.restassuredapitesting.tests.booking.tests;
 
 import br.com.restassuredapitesting.base.BaseTest;
+import br.com.restassuredapitesting.suites.AcceptanceTests;
 import br.com.restassuredapitesting.suites.AllTests;
+import br.com.restassuredapitesting.suites.SecurityTests;
+import br.com.restassuredapitesting.suites.SmokeTests;
 import br.com.restassuredapitesting.tests.auth.requests.PostAuthRequest;
 import br.com.restassuredapitesting.tests.booking.requests.DeleteBookingRequest;
 import br.com.restassuredapitesting.tests.booking.requests.GetBookingRequest;
@@ -32,34 +35,38 @@ public class PutBookingTest extends BaseTest {
 
 
     @Test
-    @Severity(SeverityLevel.NORMAL)
-    @Category(AllTests.class)
+    @Severity(SeverityLevel.CRITICAL)
+    @Category({AllTests.class, SmokeTests.class})
     @DisplayName("Alterar uma reserva utilizando o token")
-    public void validarAlteracaoDeUmaReservaUtilizandoToken() {
+    public void validateBookingUpdateTokenParameter() {
         int temporaryBookingId = newBooking.createNewBooking()
-                .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
+                .then().log().ifError().extract().path("bookingid");
 
         String firstname = hashMapBooking.get("firstname").toString();
+        String lastname = hashMapBooking.get("lastname").toString();
+
         putBookingRequest.updateBookingToken(primeiroId, postAuthRequest.getToken())
                 .then()
                 .statusCode(200)
-                .body(not(contains(firstname)))
-                .body("size()", greaterThan(0)).log().ifValidationFails();
+                .log().ifValidationFails()
+                .body(not(contains(firstname,lastname)))
+                .log().ifValidationFails();
 
         deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
     }
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @Category(AllTests.class)
-    @DisplayName("Alterar uma reserva utilizando token inválido")
-    public void validarErroNaAlteracaoDeUmaReservaUtilizandoTokenInvalido() {
+    @Category({AllTests.class, SecurityTests.class})
+    @DisplayName("Alterar uma reserva sem enviar o token")
+    public void validateErrorBookingUpdateWithoutTokenParameter() {
         int temporaryBookingId = newBooking.createNewBooking()
-                .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
+                .then().log().ifError().extract().path("bookingid");
 
         putBookingRequest.updateBookingWithoutToken(primeiroId)
                 .then()
-                .statusCode(403).log().ifValidationFails()
+                .statusCode(403).log()
+                .ifValidationFails()
                 .body(not(nullValue()));
 
         deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
@@ -67,31 +74,54 @@ public class PutBookingTest extends BaseTest {
 
 
     @Test
-    @Severity(SeverityLevel.NORMAL)
-    @Category(AllTests.class)
-    @DisplayName("Alterar uma reserva com Basic Auth")
-    public void validateErrorBookingUpdate() {
+    @Severity(SeverityLevel.CRITICAL)
+    @Category({AllTests.class, SmokeTests.class})
+    @DisplayName("Alterar uma reserva com basic auth")
+    public void validateBookingUpdateBasicAuthParameter() {
         int temporaryBookingId = newBooking.createNewBooking()
-                .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
+                .then().log().ifError().extract().path("bookingid");
 
-        putBookingRequest.updateBookingBasicAuth(primeiroId)
+        String firstname = hashMapBooking.get("firstname").toString();
+        String lastname = hashMapBooking.get("lastname").toString();
+
+        putBookingRequest.updateBookingBasicAuth(primeiroId, postAuthRequest.getAuth())
                 .then()
-                .statusCode(403).log().ifValidationFails()
-                .body(not(nullValue())).log().ifValidationFails();
+                .statusCode(200).log().ifValidationFails()
+                .body(not(contains(firstname,lastname)))
+                .log().ifValidationFails();
 
         deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
     }
+
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Category(AllTests.class)
-    @DisplayName("Alterar uma reserva Inexistente")
-    public void validateError() {
-        int temporaryBookingId = newBooking.createNewBooking().then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
+    @Category({AllTests.class, AcceptanceTests.class})
+    @DisplayName("Alterar uma reserva inexistente")
+    public void validateErrorInvalidBookingUpdate() {
+        int temporaryBookingId = newBooking.createNewBooking().then().log().ifError().extract().path("bookingid");
         deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
 
-        putBookingRequest.updateInexistentBookingToken(temporaryBookingId,postAuthRequest.getToken())
+        putBookingRequest.updateBookingToken(temporaryBookingId,postAuthRequest.getToken())
                 .then()
-                .statusCode(405).log().ifValidationFails()
-                .body(not(nullValue())).log().ifValidationFails();
+                .statusCode(405)
+                .log().ifValidationFails()
+                .body(not(nullValue()))
+                .log().ifValidationFails();
+    }
+
+    @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @Category({AllTests.class, SecurityTests.class})
+    @DisplayName("Alterar uma reserva com o parâmetro token inválido")
+    public void validateErrorBookingUpdateInvalidToken() {
+        int temporaryBookingId = newBooking.createNewBooking().then().log().ifError().extract().path("bookingid");
+        deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
+
+        putBookingRequest.updateBookingInvalidToken(temporaryBookingId)
+                .then()
+                .statusCode(403)
+                .log().ifValidationFails()
+                .body(not(nullValue()))
+                .log().ifValidationFails();
     }
 }

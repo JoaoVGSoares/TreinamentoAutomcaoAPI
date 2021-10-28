@@ -10,20 +10,25 @@ import static io.restassured.RestAssured.given;
 public class PostAuthRequest {
     AuthPayloads authPayloads = new AuthPayloads();
 
-    @Step("Retorna o token")
+    @Step("Retorna o Token")
     public Response tokenReturn() {
         return given()
                 .header("Content-Type", "application/json")
-                .body(authPayloads.jsonAuthLogin().toString())
+                .body(authPayloads.jsonTokenLogin().toString())
                 .post("auth");
     }
 
-    @Step("Busca o token")
+    @Step("Busca o Token")
     public String getToken() {
         return "token=" + this.tokenReturn()
                 .then()
                 .statusCode(200)
                 .extract()
                 .path("token");
+    }
+
+    @Step("Busca o Basic Auth")
+    public String getAuth() {
+        return "Basic YWRtaW46cGFzc3dvcmQxMjM=";
     }
 }

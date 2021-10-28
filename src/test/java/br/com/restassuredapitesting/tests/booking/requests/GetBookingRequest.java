@@ -7,69 +7,63 @@ import static io.restassured.RestAssured.given;
 
 public class GetBookingRequest {
 
-
-    @Step("Retorna os Ids da Listagem de Reservas")
+    @Step("Retorna os ID's da Listagem de Reservas")
     public Response bookingReturnIds() {
         return given()
                 .when()
                 .get("booking");
     }
 
-    @Step("Retorna uma reserva especifica")
+    @Step("Retorna uma Reserva Específica")
     public Response returnBookingSpecificId(int id) {
         return given()
                 .when()
                 .get("booking/" + id);
     }
 
-    @Step("Retorna a pesquisa das reservas utilizando o parâmetro firstname")
+    @Step("Retorna a Pesquisa das Reservas Utilizando o Parâmetro Firstname")
     public Response bookingSearchUsingFirstName(String firstname) {
         return given()
                 .queryParams("firstname", firstname)
                 .when()
-                .log().all()
                 .get("booking");
     }
 
-    @Step("Retorna a pesquisa das reservas utilizando o parâmetro lastname")
+    @Step("Retorna a Pesquisa das Reservas Utilizando o Parâmetro Lastname")
     public Response bookingSearchUsingLastname(String lastname) {
         return given()
                 .queryParams("lastname", lastname)
                 .when()
-                .log().all()
                 .get("booking");
     }
 
-    @Step("Retorna a pesquisa das reservas utilizando o parâmetro checkin")
+    @Step("Retorna a Pesquisa das Reservas Utilizando o Parâmetro Checkin")
     public Response bookingSearchUsingCheckin(Object checkin) {
         return given()
                 .queryParams("checkin", checkin)
                 .when()
-                .log().all()
                 .get("booking");
     }
 
-    @Step("Retorna a pesquisa das reservas utilizando o parâmetro checkout")
+    @Step("Retorna a Pesquisa das Reservas Utilizando o Parâmetro Checkout")
     public Response bookingSearchUsingCheckout(Object checkout) {
         return given()
                 .queryParams("checkout", checkout)
                 .when()
-                .log().all()
                 .get("booking");
     }
 
-    @Step("Retorna a pesquisa das reservas utilizando o parâmetro duas vezes")
+    @Step("Retorna a Pesquisa das Reservas Utilizando o Parâmetro Checkout Duas Vezes")
     public Response bookingSearchUsingCheckoutTwice(String checkout1, String checkout2) {
         return given()
                 .queryParams("checkout", checkout1)
                 .queryParams("checkout", checkout2)
                 .when()
-                .log().all()
                 .get("booking");
     }
 
-    @Step("Retorna a pesquisa das reservas utilizando os parâmetros firstname, lastname," +
-            " checkin e checkout")
+    @Step("Retorna a Pesquisa das Reservas Utilizando os Parâmetros Firstname, Lastname," +
+            " Checkin e Checkout")
     public Response bookingSearchUsingNameCheckinCheckout(Object firstname,
                                                           Object lastname,
                                                           Object checkin,
@@ -78,16 +72,14 @@ public class GetBookingRequest {
                 .queryParams("firstname", firstname, "lastname", lastname,
                         "checkin", checkin, "checkout", checkout)
                 .when()
-                .log().all()
                 .get("booking");
     }
 
-    @Step("Retorna a pesquisa das reservas utilizando parâmetro inválido")
+    @Step("Retorna a Pesquisa das Reservas Utilizando Parâmetro Inválido")
     public Response bookingSearchUsingInvalidParameter(String name) {
         return given()
                 .queryParams("invalid", name)
                 .when()
-                .log().all()
                 .get("booking");
     }
 }

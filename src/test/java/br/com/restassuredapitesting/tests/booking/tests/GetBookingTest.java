@@ -1,8 +1,10 @@
 package br.com.restassuredapitesting.tests.booking.tests;
 
 import br.com.restassuredapitesting.base.BaseTest;
+import br.com.restassuredapitesting.suites.AcceptanceTests;
 import br.com.restassuredapitesting.suites.AllTests;
 import br.com.restassuredapitesting.suites.ContractTests;
+import br.com.restassuredapitesting.suites.SmokeTests;
 import br.com.restassuredapitesting.tests.auth.requests.PostAuthRequest;
 import br.com.restassuredapitesting.tests.booking.requests.DeleteBookingRequest;
 import br.com.restassuredapitesting.tests.booking.requests.GetBookingRequest;
@@ -27,7 +29,7 @@ public class GetBookingTest extends BaseTest {
     GetBookingRequest getBookingRequest = new GetBookingRequest();
     DeleteBookingRequest deleteBooking = new DeleteBookingRequest();
     PostAuthRequest postAuthRequest = new PostAuthRequest();
-    PostBookingRequest newBooking = new PostBookingRequest();
+    PostBookingRequest postBookingRequest = new PostBookingRequest();
     int primeiroId = getBookingRequest.bookingReturnIds().then().statusCode(200).extract().path("[0].bookingid");
     Response firstIdInfo = getBookingRequest.returnBookingSpecificId(primeiroId);
     HashMap<String, Object> hashMapDates = firstIdInfo.then().extract().path("bookingdates");
@@ -36,17 +38,17 @@ public class GetBookingTest extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.BLOCKER)
-    @Category({AllTests.class})
-    @DisplayName("Listar Id's de reservas")
-    public void validaListagemDeIdsDasReservas() {
-        int temporaryBookingId = newBooking.createNewBooking()
-                .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
+    @Category({AllTests.class, SmokeTests.class})
+    @DisplayName("Listar ID's de reservas")
+    public void validateBookingList() {
+        int temporaryBookingId = postBookingRequest.createNewBooking()
+                .then().log().ifError().extract().path("bookingid");
 
-       getBookingRequest.bookingReturnIds()
+        getBookingRequest.bookingReturnIds()
                 .then()
-                .statusCode(200).
-                log().ifValidationFails()
-                .body(not(nullValue()))
+                .statusCode(200)
+                .log().ifValidationFails()
+                .body("[0].bookingid", notNullValue())
                 .log().ifValidationFails();
 
         deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
@@ -55,9 +57,9 @@ public class GetBookingTest extends BaseTest {
     @Test
     @Severity(SeverityLevel.BLOCKER)
     @Category({AllTests.class, ContractTests.class})
-    @DisplayName("Garantir o Schema de retorno da listagem de reservas")
-    public void validaSchemaDaListagemDeReservas() {
-        int temporaryBookingId = newBooking.createNewBooking()
+    @DisplayName("Garantir o schema de retorno da listagem de reservas")
+    public void validateBookingListSchema() {
+        int temporaryBookingId = postBookingRequest.createNewBooking()
                 .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
 
         getBookingRequest.bookingReturnIds()
@@ -72,9 +74,9 @@ public class GetBookingTest extends BaseTest {
     @Test
     @Severity(SeverityLevel.BLOCKER)
     @Category({AllTests.class, ContractTests.class})
-    @DisplayName("Garantir o Schema de retorno da listagem de uma reserva específica")
-    public void validaSchemaDeUmaReservaEspecifica() {
-        int temporaryBookingId = newBooking.createNewBooking()
+    @DisplayName("Garantir o schema de retorno da listagem de uma reserva específica")
+    public void validateSpecificBookingSchema() {
+        int temporaryBookingId = postBookingRequest.createNewBooking()
                 .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
 
         getBookingRequest.returnBookingSpecificId(temporaryBookingId)
@@ -90,81 +92,83 @@ public class GetBookingTest extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @Category({AllTests.class, ContractTests.class})
-    @DisplayName("Validar retorno da pesquisa utilizando o parametro firstname")
+    @Category({AllTests.class, SmokeTests.class})
+    @DisplayName("Validar retorno da pesquisa utilizando o parâmetro firstname")
     public void validateBookingSearchFirstnameParameter() {
-        int temporaryBookingId = newBooking.createNewBooking()
+        int temporaryBookingId = postBookingRequest.createNewBooking()
                 .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
 
         getBookingRequest.bookingSearchUsingFirstName(hashMapBooking.get("firstname").toString())
                 .then()
                 .statusCode(200)
                 .log().body()
-                .body(notNullValue());
+                .body(hasValue(primeiroId));
 
         deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
     }
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @Category({AllTests.class, ContractTests.class})
-    @DisplayName("Validar retorno da pesquisa utilizando o parametro lastname")
+    @Category({AllTests.class, SmokeTests.class})
+    @DisplayName("Validar retorno da pesquisa utilizando o parâmetro lastname")
     public void validateBookingSearchLastnameParameter() {
-        int temporaryBookingId = newBooking.createNewBooking()
+        int temporaryBookingId = postBookingRequest.createNewBooking()
                 .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
 
         getBookingRequest.bookingSearchUsingLastname(hashMapBooking.get("lastname").toString())
                 .then()
                 .statusCode(200)
-                .log().body();
+                .log().ifValidationFails()
+                .body("bookingid",hasItem(primeiroId));
 
         deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
     }
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @Category({AllTests.class, ContractTests.class})
-    @DisplayName("Validar retorno da pesquisa utilizando o parametro checkin")
-    public void validaPesquisaComParametroCheckin() {
-        int temporaryBookingId = newBooking.createNewBooking()
+    @Category({AllTests.class, SmokeTests.class})
+    @DisplayName("Validar retorno da pesquisa utilizando o parâmetro checkin")
+    public void validateBookingSearchCheckinParameter() {
+        int temporaryBookingId = postBookingRequest.createNewBooking()
                 .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
 
         getBookingRequest.bookingSearchUsingCheckin(hashMapDates.get("checkin"))
                 .then()
                 .statusCode(200)
                 .log().ifValidationFails()
-                .body(containsInAnyOrder(primeiroId));
+                .body("bookingid",hasItem(primeiroId))
+                .log().ifValidationFails();
 
         deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
     }
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @Category({AllTests.class, ContractTests.class})
-    @DisplayName("Validar retorno da pesquisa utilizando o parametro checkout")
+    @Category({AllTests.class, SmokeTests.class})
+    @DisplayName("Validar retorno da pesquisa utilizando o parâmetro checkout")
     public void validateBookingSearchCheckoutParameter() {
-        int temporaryBookingId = newBooking.createNewBooking()
-                .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
+        int temporaryBookingId = postBookingRequest.createNewBooking()
+                .then().log().ifError().extract().path("bookingid");
 
         getBookingRequest.bookingSearchUsingCheckout(hashMapDates.get("checkout"))
                 .then()
                 .statusCode(200)
-                .log()
-                .body().content(containsInAnyOrder(primeiroId));
+                .log().ifValidationFails()
+                .body("bookingid",hasItem(primeiroId))
+                .log().ifValidationFails();
 
         deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
-
     }
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Category({AllTests.class, ContractTests.class})
-    @DisplayName("Validar retorno da pesquisa utilizando o parametro checkout duas vezes ")
+    @Category({AllTests.class, AcceptanceTests.class})
+    @DisplayName("Validar retorno da pesquisa utilizando o parâmetro checkout duas vezes ")
     public void valiateBookingSearchCheckoutTwiceParameter() {
-        int temporaryBookingId = newBooking.createNewBooking()
+        int temporaryBookingId = postBookingRequest.createNewBooking()
                 .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
 
-        getBookingRequest.bookingSearchUsingCheckoutTwice(hashMapDates.get("checkout").toString(),"2020-01-01")
+        getBookingRequest.bookingSearchUsingCheckoutTwice(hashMapDates.get("checkout").toString(), "2020-01-01")
                 .then()
                 .statusCode(200)
                 .log().ifValidationFails()
@@ -174,15 +178,14 @@ public class GetBookingTest extends BaseTest {
         deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
     }
 
-
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Category({AllTests.class, ContractTests.class})
-    @DisplayName("Validar retorno da pesquisa utilizando os parâmetros primeiro nome, ultimo sobrenome," +
+    @Category({AllTests.class, SmokeTests.class})
+    @DisplayName("Validar retorno da pesquisa utilizando os parâmetros primeiro nome, último sobrenome," +
             " data de checkin e data de checkout")
     public void validateBookingSearchNameCheckinCheckoutParameter() {
-        int temporaryBookingId = newBooking.createNewBooking()
-                .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
+        int temporaryBookingId = postBookingRequest.createNewBooking()
+                .then().log().ifError().extract().path("bookingid");
 
         getBookingRequest.bookingSearchUsingNameCheckinCheckout(
                         hashMapBooking.get("firstname"), hashMapBooking.get("lastname"),
@@ -191,7 +194,7 @@ public class GetBookingTest extends BaseTest {
                 .then()
                 .statusCode(200)
                 .log().ifValidationFails()
-                .body(contains(primeiroId))
+                .body("bookingid",hasItem(primeiroId))
                 .log().ifValidationFails();
 
         deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
@@ -199,7 +202,7 @@ public class GetBookingTest extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Category({AllTests.class, ContractTests.class})
+    @Category({AllTests.class, AcceptanceTests.class})
     @DisplayName("Validar erro na pesquisa com filtro checkin mal formatado")
     public void validateErrorSearchWrongCheckinParameter() {
 
@@ -213,7 +216,7 @@ public class GetBookingTest extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Category({AllTests.class, ContractTests.class})
+    @Category({AllTests.class, AcceptanceTests.class})
     @DisplayName("Validar erro na pesquisa com filtro firstname mal formatado")
     public void validateErrorSearchWrongFirstnameParameter() {
 
@@ -227,11 +230,11 @@ public class GetBookingTest extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Category({AllTests.class, ContractTests.class})
+    @Category({AllTests.class, AcceptanceTests.class})
     @DisplayName("Validar erro na pesquisa com filtro inválido")
     public void validateSearchErrorInvalidParameter() {
-        int temporaryBookingId = newBooking.createNewBooking()
-                .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
+        int temporaryBookingId = postBookingRequest.createNewBooking()
+                .then().log().ifError().extract().path("bookingid");
 
         getBookingRequest.bookingSearchUsingInvalidParameter(hashMapDates.get("checkout").toString())
                 .then()
