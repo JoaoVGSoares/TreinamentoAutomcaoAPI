@@ -43,7 +43,7 @@ public class DeleteBookingTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Category({AllTests.class, SmokeTests.class})
     @DisplayName("Validar erro na exclusão ao utilizar ID inválido ")
-    public void deleteInvalidBooking() {
+    public void deleteInvalidBookingError() {
         int temporaryBookingId = newBooking.createNewBooking()
                 .then().log().ifError().extract().path("bookingid");
         deleteBooking.deleteBookingUsingToken(temporaryBookingId, postAuthRequest.getToken()).then().log().ifError();
