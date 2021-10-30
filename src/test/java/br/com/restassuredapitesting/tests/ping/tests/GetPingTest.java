@@ -11,6 +11,8 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
+import static org.hamcrest.Matchers.*;
+
 @Feature("Feature - API Online")
 public class GetPingTest extends BaseTest {
     GetPingRequest getPingRequest = new GetPingRequest();
@@ -21,9 +23,8 @@ public class GetPingTest extends BaseTest {
     @DisplayName("Verificar se a API está online")
     public void validateOnlineAPI() {
         getPingRequest.pingReturnApi()
-                .then()
-                .statusCode(201).
-                log().ifValidationFails() ;
+                .then().log().ifValidationFails()
+                .statusCode(201)
+                .body(notNullValue());
     }
-
 }

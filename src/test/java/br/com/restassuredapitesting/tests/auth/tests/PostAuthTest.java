@@ -24,10 +24,8 @@ public class PostAuthTest extends BaseTest {
     public void validateTokenReturn(){
 
         postAuthRequest.tokenReturn()
-                .then()
+                .then().log().ifValidationFails()
                 .statusCode(200)
-                .log().ifValidationFails()
-                .body("token", notNullValue())
-                .log().ifValidationFails();
+                .body("token", notNullValue());
     }
 }

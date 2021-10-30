@@ -4,7 +4,6 @@ import br.com.restassuredapitesting.base.BaseTest;
 import br.com.restassuredapitesting.suites.AcceptanceTests;
 import br.com.restassuredapitesting.suites.AllTests;
 import br.com.restassuredapitesting.suites.SmokeTests;
-import br.com.restassuredapitesting.tests.auth.requests.PostAuthRequest;
 import br.com.restassuredapitesting.tests.booking.requests.PostBookingRequest;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -15,25 +14,19 @@ import org.junit.experimental.categories.Category;
 
 import static org.hamcrest.Matchers.*;
 
-@Feature("Feature - Alterção de Reservas")
+@Feature("Feature - Criação de Reservas")
 public class PostBookingTest extends BaseTest {
-    PostAuthRequest postAuthRequest = new PostAuthRequest();
     PostBookingRequest postBookingRequest = new PostBookingRequest();
 
     @Test
     @Severity(SeverityLevel.NORMAL)
     @Category({AllTests.class, AcceptanceTests.class})
-    @DisplayName("Alterar uma reserva com header inválido")
-    public void validateBookingUpdateErrorWrongHeader() {
-        int temporaryBookingId = postBookingRequest.createNewBooking()
-                .then().statusCode(200).log().ifValidationFails().extract().path("bookingid");
-
-        postBookingRequest.updateBookingInvalidAcceptHeader(temporaryBookingId, postAuthRequest.getToken())
-                .then()
+    @DisplayName("Criar uma reserva com header Accept inválido")
+    public void validateCreateBookingErrorWrongHeader() {
+                postBookingRequest.updateBookingInvalidAcceptHeader()
+                .then().log().ifValidationFails()
                 .statusCode(418)
-                .log().ifValidationFails()
-                .body(not(nullValue()))
-                .log().ifValidationFails();
+                .body(notNullValue());
     }
 
     @Test
@@ -42,11 +35,9 @@ public class PostBookingTest extends BaseTest {
     @DisplayName("Criar uma reserva")
     public void createNewBooking() {
         postBookingRequest.createNewBooking()
-                .then()
+                .then().log().ifValidationFails()
                 .statusCode(200)
-                .log().ifValidationFails()
-                .body("size()", greaterThan(0))
-                .log().ifValidationFails();
+                .body("booking", hasKey("firstname"));
     }
 
     @Test
@@ -56,11 +47,9 @@ public class PostBookingTest extends BaseTest {
     public void createNewBookingTwice() {
         for(int i=0;i<2;i++) {
             postBookingRequest.createNewBooking()
-                    .then()
+                    .then().log().ifValidationFails()
                     .statusCode(200)
-                    .log().ifValidationFails()
-                    .body("size()", greaterThan(0))
-                    .log().ifValidationFails();
+                    .body("booking", hasKey("firstname"));
         }
     }
 
@@ -70,11 +59,9 @@ public class PostBookingTest extends BaseTest {
     @DisplayName("Criar uma reserva com mais parâmetros")
     public void validateCreateNewBookingWithExtraParameter() {
         postBookingRequest.createNewBookingWithExtraParameter()
-                .then()
+                .then().log().ifValidationFails()
                 .statusCode(200)
-                .log().ifValidationFails()
-                .body("booking.campo1",hasItem("Valor campo 1"))
-                .log().ifValidationFails();
+                .body("booking",hasKey("campo 1"));
     }
 
     @Test
@@ -83,9 +70,8 @@ public class PostBookingTest extends BaseTest {
     @DisplayName("Validar erro ao criar reserva com payload inválido")
     public void validateErrorCreateBookingInvalidPayload() {
         postBookingRequest.createNewBookingInvalidPayload()
-                .then()
-                .statusCode(400)
-                .log().ifValidationFails()
-                .body(not(nullValue()));
+                .then().log().ifValidationFails()
+                .statusCode(500)
+                .body(notNullValue());
     }
 }

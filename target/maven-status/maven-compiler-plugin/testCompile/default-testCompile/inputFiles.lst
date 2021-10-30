@@ -1,8 +1,10 @@
 C:\Users\João\IdeaProjects\restassuredapitesting\src\test\java\br\com\restassuredapitesting\tests\booking\tests\DeleteBookingTest.java
 C:\Users\João\IdeaProjects\restassuredapitesting\src\test\java\br\com\restassuredapitesting\tests\booking\tests\PostBookingTest.java
 C:\Users\João\IdeaProjects\restassuredapitesting\src\test\java\br\com\restassuredapitesting\tests\booking\requests\GetBookingRequest.java
+C:\Users\João\IdeaProjects\restassuredapitesting\src\test\java\br\com\restassuredapitesting\suites\HealthcheckTests.java
 C:\Users\João\IdeaProjects\restassuredapitesting\src\test\java\br\com\restassuredapitesting\tests\auth\tests\PostAuthTest.java
 C:\Users\João\IdeaProjects\restassuredapitesting\src\test\java\br\com\restassuredapitesting\runners\Alltests.java
+C:\Users\João\IdeaProjects\restassuredapitesting\src\test\java\br\com\restassuredapitesting\runners\HealthcheckTests.java
 C:\Users\João\IdeaProjects\restassuredapitesting\src\test\java\br\com\restassuredapitesting\base\BaseTest.java
 C:\Users\João\IdeaProjects\restassuredapitesting\src\test\java\br\com\restassuredapitesting\tests\auth\payloads\AuthPayloads.java
 C:\Users\João\IdeaProjects\restassuredapitesting\src\test\java\br\com\restassuredapitesting\tests\booking\tests\PutBookingTest.java

@@ -7,7 +7,6 @@ import static io.restassured.RestAssured.given;
 
 public class GetPingRequest {
 
-
     @Step("Retorna API Online")
     public Response pingReturnApi() {
         return given()
