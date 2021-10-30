@@ -1,6 +1,5 @@
 package br.com.restassuredapitesting.tests.booking.requests;
 
-import br.com.restassuredapitesting.tests.booking.payloads.BookingPayloads;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
