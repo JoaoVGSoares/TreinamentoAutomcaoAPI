@@ -1,0 +1,43 @@
+-------------------------------------------------------------------------------
+Test set: br.com.restassuredapitesting.tests.booking.tests.GetBookingTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 5.062 s <<< FAILURE! - in br.com.restassuredapitesting.tests.booking.tests.GetBookingTest
+validateSearchErrorInvalidParameter(br.com.restassuredapitesting.tests.booking.tests.GetBookingTest)  Time elapsed: 2.508 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <400> but was <200>.
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateSearchErrorInvalidParameter(GetBookingTest.java:225)
+
+validateErrorSearchWrongFirstnameParameter(br.com.restassuredapitesting.tests.booking.tests.GetBookingTest)  Time elapsed: 1.1 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <400> but was <200>.
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateErrorSearchWrongFirstnameParameter(GetBookingTest.java:211)
+
+validateBookingSearchCheckinParameter(br.com.restassuredapitesting.tests.booking.tests.GetBookingTest)  Time elapsed: 2.63 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+JSON path bookingid doesn't match.
+Expected: a collection containing <449>
+  Actual: [6, 2, 4, 9, 10]
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateBookingSearchCheckinParameter(GetBookingTest.java:133)
+
+valiateBookingSearchCheckoutTwiceParameter(br.com.restassuredapitesting.tests.booking.tests.GetBookingTest)  Time elapsed: 2.507 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.valiateBookingSearchCheckoutTwiceParameter(GetBookingTest.java:164)
+
+validateBookingSearchNameCheckinCheckoutParameter(br.com.restassuredapitesting.tests.booking.tests.GetBookingTest)  Time elapsed: 2.618 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+JSON path bookingid doesn't match.
+Expected: a collection containing <449>
+  Actual: []
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateBookingSearchNameCheckinCheckoutParameter(GetBookingTest.java:186)
+

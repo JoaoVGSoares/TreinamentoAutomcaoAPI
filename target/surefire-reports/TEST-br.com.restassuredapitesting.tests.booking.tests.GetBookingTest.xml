@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="br.com.restassuredapitesting.runners.Alltests" time="97.575" tests="28" errors="0" skipped="0" failures="7">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="5.062" tests="12" errors="0" skipped="0" failures="5">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -12,13 +12,13 @@
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
-    <property name="user.timezone" value=""/>
+    <property name="user.timezone" value="America/Sao_Paulo"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="os.name" value="Windows 10"/>
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\João\AppData\Local\Temp\surefire8722243641522471088\surefirebooter3995795372371430868.jar C:\Users\João\AppData\Local\Temp\surefire8722243641522471088 2021-10-30T01-14-21_943-jvmRun1 surefire7517103099919725511tmp surefire_01092436638104516461tmp"/>
+    <property name="sun.java.command" value="C:\Users\João\AppData\Local\Temp\surefire121976435516113797\surefirebooter4132238233460678283.jar C:\Users\João\AppData\Local\Temp\surefire121976435516113797 2021-10-30T02-10-44_857-jvmRun1 surefire6824149458462816345tmp surefire_04483339980351353724tmp"/>
     <property name="surefire.test.class.path" value="C:\Users\João\IdeaProjects\restassuredapitesting\target\test-classes;C:\Users\João\IdeaProjects\restassuredapitesting\target\classes;C:\Users\João\.m2\repository\com\jayway\jsonpath\json-path\2.6.0\json-path-2.6.0.jar;C:\Users\João\.m2\repository\net\minidev\json-smart\2.4.7\json-smart-2.4.7.jar;C:\Users\João\.m2\repository\net\minidev\accessors-smart\2.4.7\accessors-smart-2.4.7.jar;C:\Users\João\.m2\repository\org\ow2\asm\asm\9.1\asm-9.1.jar;C:\Users\João\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.13.1\log4j-slf4j-impl-2.13.1.jar;C:\Users\João\.m2\repository\org\apache\logging\log4j\log4j-api\2.13.1\log4j-api-2.13.1.jar;C:\Users\João\.m2\repository\org\apache\logging\log4j\log4j-core\2.13.1\log4j-core-2.13.1.jar;C:\Users\João\.m2\repository\org\projectlombok\lombok\1.18.6\lombok-1.18.6.jar;C:\Users\João\.m2\repository\com\googlecode\json-simple\json-simple\1.1.1\json-simple-1.1.1.jar;C:\Users\João\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\João\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\João\.m2\repository\io\rest-assured\rest-assured\3.1.0\rest-assured-3.1.0.jar;C:\Users\João\.m2\repository\org\codehaus\groovy\groovy\2.4.12\groovy-2.4.12.jar;C:\Users\João\.m2\repository\org\codehaus\groovy\groovy-xml\2.4.12\groovy-xml-2.4.12.jar;C:\Users\João\.m2\repository\org\apache\httpcomponents\httpclient\4.5.3\httpclient-4.5.3.jar;C:\Users\João\.m2\repository\org\apache\httpcomponents\httpcore\4.4.6\httpcore-4.4.6.jar;C:\Users\João\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\João\.m2\repository\commons-codec\commons-codec\1.9\commons-codec-1.9.jar;C:\Users\João\.m2\repository\org\apache\httpcomponents\httpmime\4.5.1\httpmime-4.5.1.jar;C:\Users\João\.m2\repository\org\hamcrest\hamcrest-library\1.3\hamcrest-library-1.3.jar;C:\Users\João\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\João\.m2\repository\io\rest-assured\xml-path\3.1.0\xml-path-3.1.0.jar;C:\Users\João\.m2\repository\javax\xml\bind\jaxb-api\2.2.12\jaxb-api-2.2.12.jar;C:\Users\João\.m2\repository\io\rest-assured\json-schema-validator\3.1.0\json-schema-validator-3.1.0.jar;C:\Users\João\.m2\repository\com\github\fge\json-schema-validator\2.2.6\json-schema-validator-2.2.6.jar;C:\Users\João\.m2\repository\com\google\code\findbugs\jsr305\3.0.0\jsr305-3.0.0.jar;C:\Users\João\.m2\repository\joda-time\joda-time\2.3\joda-time-2.3.jar;C:\Users\João\.m2\repository\com\googlecode\libphonenumber\libphonenumber\6.2\libphonenumber-6.2.jar;C:\Users\João\.m2\repository\com\github\fge\json-schema-core\1.2.5\json-schema-core-1.2.5.jar;C:\Users\João\.m2\repository\com\github\fge\uri-template\0.9\uri-template-0.9.jar;C:\Users\João\.m2\repository\com\github\fge\msg-simple\1.1\msg-simple-1.1.jar;C:\Users\João\.m2\repository\com\github\fge\btf\1.2\btf-1.2.jar;C:\Users\João\.m2\repository\com\google\guava\guava\16.0.1\guava-16.0.1.jar;C:\Users\João\.m2\repository\com\github\fge\jackson-coreutils\1.8\jackson-coreutils-1.8.jar;C:\Users\João\.m2\repository\org\mozilla\rhino\1.7R4\rhino-1.7R4.jar;C:\Users\João\.m2\repository\javax\mail\mailapi\1.4.3\mailapi-1.4.3.jar;C:\Users\João\.m2\repository\javax\activation\activation\1.1\activation-1.1.jar;C:\Users\João\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\João\.m2\repository\com\github\javafaker\javafaker\1.0.1\javafaker-1.0.1.jar;C:\Users\João\.m2\repository\org\apache\commons\commons-lang3\3.5\commons-lang3-3.5.jar;C:\Users\João\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23-android.jar;C:\Users\João\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\João\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;C:\Users\João\.m2\repository\io\rest-assured\json-path\3.1.0\json-path-3.1.0.jar;C:\Users\João\.m2\repository\org\codehaus\groovy\groovy-json\2.4.12\groovy-json-2.4.12.jar;C:\Users\João\.m2\repository\io\rest-assured\rest-assured-common\3.1.0\rest-assured-common-3.1.0.jar;C:\Users\João\.m2\repository\io\qameta\allure\allure-junit4\2.9.0\allure-junit4-2.9.0.jar;C:\Users\João\.m2\repository\io\qameta\allure\allure-java-commons\2.9.0\allure-java-commons-2.9.0.jar;C:\Users\João\.m2\repository\io\qameta\allure\allure-model\2.9.0\allure-model-2.9.0.jar;C:\Users\João\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.9.7\jackson-databind-2.9.7.jar;C:\Users\João\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar;C:\Users\João\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.9.7\jackson-core-2.9.7.jar;C:\Users\João\.m2\repository\org\apache\tika\tika-core\1.19.1\tika-core-1.19.1.jar;C:\Users\João\.m2\repository\org\aspectj\aspectjrt\1.9.1\aspectjrt-1.9.1.jar;C:\Users\João\.m2\repository\org\jooq\joor-java-8\0.9.9\joor-java-8-0.9.9.jar;C:\Users\João\.m2\repository\org\slf4j\slf4j-api\1.7.26\slf4j-api-1.7.26.jar;C:\Users\João\.m2\repository\org\json\json\20190722\json-20190722.jar;"/>
     <property name="test" value="Alltests"/>
     <property name="allure.results.directory" value="C:\Users\João\IdeaProjects\restassuredapitesting\target/allure-results"/>
@@ -33,7 +33,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\João\AppData\Local\Temp\surefire8722243641522471088\surefirebooter3995795372371430868.jar;C:\Users\João\.m2\repository/org/aspectj/aspectjweaver/1.9.1/aspectjweaver-1.9.1.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\João\AppData\Local\Temp\surefire121976435516113797\surefirebooter4132238233460678283.jar;C:\Users\João\.m2\repository/org/aspectj/aspectjweaver/1.9.1/aspectjweaver-1.9.1.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_202\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -63,90 +63,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="validateOnlineAPI" classname="br.com.restassuredapitesting.tests.ping.tests.GetPingTest" time="4.404"/>
-  <testcase name="validateErrorSearchWrongFirstnameParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="1.053">
-    <failure message="1 expectation failed.&#10;Expected status code &lt;400&gt; but was &lt;200&gt;.&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
-1 expectation failed.
-Expected status code <400> but was <200>.
-
-	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateErrorSearchWrongFirstnameParameter(GetBookingTest.java:211)
-]]></failure>
-    <system-out><![CDATA[HTTP/1.1 200 OK
-Server: Cowboy
-Connection: keep-alive
-X-Powered-By: Express
-Content-Type: application/json; charset=utf-8
-Content-Length: 2
-Etag: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
-Date: Sat, 30 Oct 2021 04:14:35 GMT
-Via: 1.1 vegur
-
-[
-    
-]
-]]></system-out>
-  </testcase>
-  <testcase name="validateSpecificBookingSchema" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="5.337"/>
-  <testcase name="valiateBookingSearchCheckoutTwiceParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="1.679">
-    <failure message="1 expectation failed.&#10;Expected status code &lt;200&gt; but was &lt;500&gt;.&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
-1 expectation failed.
-Expected status code <200> but was <500>.
-
-	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.valiateBookingSearchCheckoutTwiceParameter(GetBookingTest.java:164)
-]]></failure>
-    <system-out><![CDATA[HTTP/1.1 500 Internal Server Error
-Server: Cowboy
-Connection: keep-alive
-X-Powered-By: Express
-Content-Type: text/plain; charset=utf-8
-Content-Length: 21
-Etag: W/"15-/6VXivhc2MKdLfIkLcUE47K6aH0"
-Date: Sat, 30 Oct 2021 04:14:46 GMT
-Via: 1.1 vegur
-
-Internal Server Error
-]]></system-out>
-  </testcase>
-  <testcase name="validateBookingListSchema" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="3.413"/>
-  <testcase name="validateBookingSearchCheckinParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="1.799">
-    <failure message="1 expectation failed.&#10;JSON path bookingid doesn&apos;t match.&#10;Expected: a collection containing &lt;136&gt;&#10;  Actual: [6, 2, 4, 9, 10]&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
-1 expectation failed.
-JSON path bookingid doesn't match.
-Expected: a collection containing <136>
-  Actual: [6, 2, 4, 9, 10]
-
-	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateBookingSearchCheckinParameter(GetBookingTest.java:133)
-]]></failure>
-    <system-out><![CDATA[HTTP/1.1 200 OK
-Server: Cowboy
-Connection: keep-alive
-X-Powered-By: Express
-Content-Type: application/json; charset=utf-8
-Content-Length: 82
-Etag: W/"52-W8gDiQwurFvr/s+f7HNRf58Q8g0"
-Date: Sat, 30 Oct 2021 04:14:54 GMT
-Via: 1.1 vegur
-
-[
-    {
-        "bookingid": 6
-    },
-    {
-        "bookingid": 2
-    },
-    {
-        "bookingid": 4
-    },
-    {
-        "bookingid": 9
-    },
-    {
-        "bookingid": 10
-    }
-]
-]]></system-out>
-  </testcase>
-  <testcase name="validateSearchErrorInvalidParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="1.689">
+  <testcase name="validateBookingSearchLastnameParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="4.293"/>
+  <testcase name="validateErrorSearchWrongCheckinParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="1.081"/>
+  <testcase name="validateBookingSearchFirstnameParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="4.251"/>
+  <testcase name="validateBookingSearchCheckoutParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="4.273"/>
+  <testcase name="validateSpecificBookingSchema" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="4.857"/>
+  <testcase name="validateBookingList" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="4.241"/>
+  <testcase name="validateSearchErrorInvalidParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="2.508">
     <failure message="1 expectation failed.&#10;Expected status code &lt;400&gt; but was &lt;200&gt;.&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
 1 expectation failed.
 Expected status code <400> but was <200>.
@@ -158,12 +81,54 @@ Server: Cowboy
 Connection: keep-alive
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8
-Content-Length: 1745
-Etag: W/"6d1-I9zarvADNQoeihEIppZbWGDNEK8"
-Date: Sat, 30 Oct 2021 04:14:58 GMT
+Content-Length: 4499
+Etag: W/"1193-2pzTnj0EaHKgJzLohxCXCvQZ5M8"
+Date: Sat, 30 Oct 2021 05:11:00 GMT
 Via: 1.1 vegur
 
 [
+    {
+        "bookingid": 449
+    },
+    {
+        "bookingid": 429
+    },
+    {
+        "bookingid": 305
+    },
+    {
+        "bookingid": 457
+    },
+    {
+        "bookingid": 480
+    },
+    {
+        "bookingid": 549
+    },
+    {
+        "bookingid": 402
+    },
+    {
+        "bookingid": 245
+    },
+    {
+        "bookingid": 258
+    },
+    {
+        "bookingid": 327
+    },
+    {
+        "bookingid": 484
+    },
+    {
+        "bookingid": 595
+    },
+    {
+        "bookingid": 398
+    },
+    {
+        "bookingid": 551
+    },
     {
         "bookingid": 136
     },
@@ -177,10 +142,28 @@ Via: 1.1 vegur
         "bookingid": 157
     },
     {
+        "bookingid": 498
+    },
+    {
+        "bookingid": 329
+    },
+    {
+        "bookingid": 566
+    },
+    {
+        "bookingid": 499
+    },
+    {
         "bookingid": 201
     },
     {
         "bookingid": 96
+    },
+    {
+        "bookingid": 278
+    },
+    {
+        "bookingid": 408
     },
     {
         "bookingid": 121
@@ -189,28 +172,73 @@ Via: 1.1 vegur
         "bookingid": 163
     },
     {
+        "bookingid": 495
+    },
+    {
+        "bookingid": 399
+    },
+    {
         "bookingid": 101
     },
     {
         "bookingid": 215
     },
     {
+        "bookingid": 600
+    },
+    {
         "bookingid": 65
+    },
+    {
+        "bookingid": 282
+    },
+    {
+        "bookingid": 616
     },
     {
         "bookingid": 219
     },
     {
+        "bookingid": 529
+    },
+    {
+        "bookingid": 310
+    },
+    {
+        "bookingid": 338
+    },
+    {
         "bookingid": 183
+    },
+    {
+        "bookingid": 579
     },
     {
         "bookingid": 26
     },
     {
+        "bookingid": 546
+    },
+    {
+        "bookingid": 424
+    },
+    {
         "bookingid": 181
     },
     {
+        "bookingid": 452
+    },
+    {
+        "bookingid": 622
+    },
+    {
+        "bookingid": 519
+    },
+    {
         "bookingid": 7
+    },
+    {
+        "bookingid": 567
     },
     {
         "bookingid": 17
@@ -219,10 +247,25 @@ Via: 1.1 vegur
         "bookingid": 206
     },
     {
+        "bookingid": 527
+    },
+    {
         "bookingid": 119
     },
     {
+        "bookingid": 266
+    },
+    {
+        "bookingid": 448
+    },
+    {
+        "bookingid": 618
+    },
+    {
         "bookingid": 62
+    },
+    {
+        "bookingid": 387
     },
     {
         "bookingid": 63
@@ -243,6 +286,12 @@ Via: 1.1 vegur
         "bookingid": 123
     },
     {
+        "bookingid": 628
+    },
+    {
+        "bookingid": 337
+    },
+    {
         "bookingid": 68
     },
     {
@@ -252,19 +301,46 @@ Via: 1.1 vegur
         "bookingid": 208
     },
     {
+        "bookingid": 433
+    },
+    {
+        "bookingid": 568
+    },
+    {
         "bookingid": 71
+    },
+    {
+        "bookingid": 624
+    },
+    {
+        "bookingid": 544
     },
     {
         "bookingid": 42
     },
     {
+        "bookingid": 400
+    },
+    {
         "bookingid": 239
+    },
+    {
+        "bookingid": 254
     },
     {
         "bookingid": 2
     },
     {
+        "bookingid": 504
+    },
+    {
+        "bookingid": 255
+    },
+    {
         "bookingid": 22
+    },
+    {
+        "bookingid": 518
     },
     {
         "bookingid": 34
@@ -273,10 +349,19 @@ Via: 1.1 vegur
         "bookingid": 135
     },
     {
+        "bookingid": 450
+    },
+    {
         "bookingid": 146
     },
     {
         "bookingid": 28
+    },
+    {
+        "bookingid": 571
+    },
+    {
+        "bookingid": 521
     },
     {
         "bookingid": 76
@@ -300,25 +385,67 @@ Via: 1.1 vegur
         "bookingid": 32
     },
     {
+        "bookingid": 350
+    },
+    {
         "bookingid": 103
     },
     {
         "bookingid": 120
     },
     {
+        "bookingid": 256
+    },
+    {
+        "bookingid": 577
+    },
+    {
         "bookingid": 13
+    },
+    {
+        "bookingid": 286
     },
     {
         "bookingid": 14
     },
     {
+        "bookingid": 581
+    },
+    {
+        "bookingid": 532
+    },
+    {
+        "bookingid": 306
+    },
+    {
+        "bookingid": 552
+    },
+    {
         "bookingid": 75
+    },
+    {
+        "bookingid": 358
     },
     {
         "bookingid": 4
     },
     {
+        "bookingid": 351
+    },
+    {
+        "bookingid": 623
+    },
+    {
+        "bookingid": 620
+    },
+    {
+        "bookingid": 257
+    },
+    {
         "bookingid": 95
+    },
+    {
+        "bookingid": 472
     },
     {
         "bookingid": 46
@@ -328,6 +455,21 @@ Via: 1.1 vegur
     },
     {
         "bookingid": 122
+    },
+    {
+        "bookingid": 460
+    },
+    {
+        "bookingid": 530
+    },
+    {
+        "bookingid": 501
+    },
+    {
+        "bookingid": 353
+    },
+    {
+        "bookingid": 283
     },
     {
         "bookingid": 233
@@ -342,10 +484,40 @@ Via: 1.1 vegur
         "bookingid": 99
     },
     {
+        "bookingid": 473
+    },
+    {
+        "bookingid": 422
+    },
+    {
+        "bookingid": 617
+    },
+    {
+        "bookingid": 591
+    },
+    {
+        "bookingid": 385
+    },
+    {
+        "bookingid": 597
+    },
+    {
         "bookingid": 182
     },
     {
+        "bookingid": 302
+    },
+    {
+        "bookingid": 570
+    },
+    {
         "bookingid": 134
+    },
+    {
+        "bookingid": 578
+    },
+    {
+        "bookingid": 542
     },
     {
         "bookingid": 67
@@ -360,7 +532,19 @@ Via: 1.1 vegur
         "bookingid": 9
     },
     {
+        "bookingid": 543
+    },
+    {
         "bookingid": 18
+    },
+    {
+        "bookingid": 494
+    },
+    {
+        "bookingid": 598
+    },
+    {
+        "bookingid": 376
     },
     {
         "bookingid": 132
@@ -372,7 +556,19 @@ Via: 1.1 vegur
         "bookingid": 156
     },
     {
+        "bookingid": 447
+    },
+    {
         "bookingid": 161
+    },
+    {
+        "bookingid": 328
+    },
+    {
+        "bookingid": 428
+    },
+    {
+        "bookingid": 405
     },
     {
         "bookingid": 5
@@ -381,28 +577,106 @@ Via: 1.1 vegur
         "bookingid": 200
     },
     {
+        "bookingid": 290
+    },
+    {
+        "bookingid": 240
+    },
+    {
+        "bookingid": 381
+    },
+    {
+        "bookingid": 593
+    },
+    {
+        "bookingid": 326
+    },
+    {
+        "bookingid": 594
+    },
+    {
         "bookingid": 20
+    },
+    {
+        "bookingid": 333
+    },
+    {
+        "bookingid": 359
     },
     {
         "bookingid": 234
     },
     {
+        "bookingid": 626
+    },
+    {
+        "bookingid": 615
+    },
+    {
+        "bookingid": 550
+    },
+    {
+        "bookingid": 453
+    },
+    {
+        "bookingid": 434
+    },
+    {
+        "bookingid": 352
+    },
+    {
         "bookingid": 179
+    },
+    {
+        "bookingid": 260
+    },
+    {
+        "bookingid": 264
+    },
+    {
+        "bookingid": 605
+    },
+    {
+        "bookingid": 279
+    },
+    {
+        "bookingid": 304
     },
     {
         "bookingid": 216
     },
     {
+        "bookingid": 426
+    },
+    {
+        "bookingid": 403
+    },
+    {
         "bookingid": 93
+    },
+    {
+        "bookingid": 280
     },
     {
         "bookingid": 117
     },
     {
+        "bookingid": 289
+    },
+    {
         "bookingid": 209
     },
     {
+        "bookingid": 474
+    },
+    {
         "bookingid": 102
+    },
+    {
+        "bookingid": 627
+    },
+    {
+        "bookingid": 481
     },
     {
         "bookingid": 192
@@ -411,13 +685,31 @@ Via: 1.1 vegur
         "bookingid": 45
     },
     {
+        "bookingid": 360
+    },
+    {
+        "bookingid": 629
+    },
+    {
+        "bookingid": 470
+    },
+    {
+        "bookingid": 619
+    },
+    {
         "bookingid": 44
     },
     {
         "bookingid": 19
     },
     {
+        "bookingid": 496
+    },
+    {
         "bookingid": 70
+    },
+    {
+        "bookingid": 378
     },
     {
         "bookingid": 30
@@ -426,10 +718,31 @@ Via: 1.1 vegur
         "bookingid": 147
     },
     {
+        "bookingid": 497
+    },
+    {
+        "bookingid": 315
+    },
+    {
+        "bookingid": 388
+    },
+    {
         "bookingid": 217
     },
     {
+        "bookingid": 569
+    },
+    {
         "bookingid": 15
+    },
+    {
+        "bookingid": 312
+    },
+    {
+        "bookingid": 404
+    },
+    {
+        "bookingid": 309
     },
     {
         "bookingid": 10
@@ -438,10 +751,28 @@ Via: 1.1 vegur
         "bookingid": 162
     },
     {
+        "bookingid": 265
+    },
+    {
         "bookingid": 69
     },
     {
+        "bookingid": 471
+    },
+    {
+        "bookingid": 377
+    },
+    {
+        "bookingid": 334
+    },
+    {
         "bookingid": 77
+    },
+    {
+        "bookingid": 475
+    },
+    {
+        "bookingid": 625
     },
     {
         "bookingid": 25
@@ -450,28 +781,160 @@ Via: 1.1 vegur
         "bookingid": 204
     },
     {
+        "bookingid": 330
+    },
+    {
+        "bookingid": 303
+    },
+    {
+        "bookingid": 401
+    },
+    {
+        "bookingid": 356
+    },
+    {
         "bookingid": 178
+    },
+    {
+        "bookingid": 354
+    },
+    {
+        "bookingid": 630
+    },
+    {
+        "bookingid": 522
+    },
+    {
+        "bookingid": 374
+    },
+    {
+        "bookingid": 592
+    },
+    {
+        "bookingid": 446
+    },
+    {
+        "bookingid": 507
+    },
+    {
+        "bookingid": 621
     },
     {
         "bookingid": 238
     },
     {
+        "bookingid": 425
+    },
+    {
         "bookingid": 21
+    },
+    {
+        "bookingid": 375
+    },
+    {
+        "bookingid": 281
     },
     {
         "bookingid": 205
     },
     {
+        "bookingid": 423
+    },
+    {
         "bookingid": 11
+    },
+    {
+        "bookingid": 545
     }
 ]
 ]]></system-out>
   </testcase>
-  <testcase name="validateBookingSearchNameCheckinCheckoutParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="1.664">
-    <failure message="1 expectation failed.&#10;JSON path bookingid doesn&apos;t match.&#10;Expected: a collection containing &lt;136&gt;&#10;  Actual: []&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+  <testcase name="validateErrorSearchWrongFirstnameParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="1.1">
+    <failure message="1 expectation failed.&#10;Expected status code &lt;400&gt; but was &lt;200&gt;.&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <400> but was <200>.
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateErrorSearchWrongFirstnameParameter(GetBookingTest.java:211)
+]]></failure>
+    <system-out><![CDATA[HTTP/1.1 200 OK
+Server: Cowboy
+Connection: keep-alive
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Etag: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
+Date: Sat, 30 Oct 2021 05:10:59 GMT
+Via: 1.1 vegur
+
+[
+    
+]
+]]></system-out>
+  </testcase>
+  <testcase name="validateBookingSearchCheckinParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="2.63">
+    <failure message="1 expectation failed.&#10;JSON path bookingid doesn&apos;t match.&#10;Expected: a collection containing &lt;449&gt;&#10;  Actual: [6, 2, 4, 9, 10]&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
 1 expectation failed.
 JSON path bookingid doesn't match.
-Expected: a collection containing <136>
+Expected: a collection containing <449>
+  Actual: [6, 2, 4, 9, 10]
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateBookingSearchCheckinParameter(GetBookingTest.java:133)
+]]></failure>
+    <system-out><![CDATA[HTTP/1.1 200 OK
+Server: Cowboy
+Connection: keep-alive
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 82
+Etag: W/"52-W8gDiQwurFvr/s+f7HNRf58Q8g0"
+Date: Sat, 30 Oct 2021 05:11:00 GMT
+Via: 1.1 vegur
+
+[
+    {
+        "bookingid": 6
+    },
+    {
+        "bookingid": 2
+    },
+    {
+        "bookingid": 4
+    },
+    {
+        "bookingid": 9
+    },
+    {
+        "bookingid": 10
+    }
+]
+]]></system-out>
+  </testcase>
+  <testcase name="validateBookingListSchema" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="4.952"/>
+  <testcase name="valiateBookingSearchCheckoutTwiceParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="2.507">
+    <failure message="1 expectation failed.&#10;Expected status code &lt;200&gt; but was &lt;500&gt;.&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.valiateBookingSearchCheckoutTwiceParameter(GetBookingTest.java:164)
+]]></failure>
+    <system-out><![CDATA[HTTP/1.1 500 Internal Server Error
+Server: Cowboy
+Connection: keep-alive
+X-Powered-By: Express
+Content-Type: text/plain; charset=utf-8
+Content-Length: 21
+Etag: W/"15-/6VXivhc2MKdLfIkLcUE47K6aH0"
+Date: Sat, 30 Oct 2021 05:11:00 GMT
+Via: 1.1 vegur
+
+Internal Server Error
+]]></system-out>
+  </testcase>
+  <testcase name="validateBookingSearchNameCheckinCheckoutParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="2.618">
+    <failure message="1 expectation failed.&#10;JSON path bookingid doesn&apos;t match.&#10;Expected: a collection containing &lt;449&gt;&#10;  Actual: []&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+1 expectation failed.
+JSON path bookingid doesn't match.
+Expected: a collection containing <449>
   Actual: []
 
 	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateBookingSearchNameCheckinCheckoutParameter(GetBookingTest.java:186)
@@ -483,85 +946,12 @@ X-Powered-By: Express
 Content-Type: application/json; charset=utf-8
 Content-Length: 2
 Etag: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
-Date: Sat, 30 Oct 2021 04:15:01 GMT
+Date: Sat, 30 Oct 2021 05:11:00 GMT
 Via: 1.1 vegur
 
 [
     
 ]
-]]></system-out>
-  </testcase>
-  <testcase name="validateBookingList" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="3.359"/>
-  <testcase name="validateBookingSearchFirstnameParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="3.296"/>
-  <testcase name="validateBookingSearchLastnameParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="3.268"/>
-  <testcase name="validateBookingSearchCheckoutParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="3.197"/>
-  <testcase name="validateErrorSearchWrongCheckinParameter" classname="br.com.restassuredapitesting.tests.booking.tests.GetBookingTest" time="0.796"/>
-  <testcase name="validateTokenReturn" classname="br.com.restassuredapitesting.tests.auth.tests.PostAuthTest" time="0.81"/>
-  <testcase name="validateErrorBookingUpdateWithoutTokenParameter" classname="br.com.restassuredapitesting.tests.booking.tests.PutBookingTest" time="1.637">
-    <failure message="1 expectation failed.&#10;Expected status code &lt;4033&gt; but was &lt;403&gt;.&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
-1 expectation failed.
-Expected status code <4033> but was <403>.
-
-	at br.com.restassuredapitesting.tests.booking.tests.PutBookingTest.validateErrorBookingUpdateWithoutTokenParameter(PutBookingTest.java:66)
-]]></failure>
-    <system-out><![CDATA[HTTP/1.1 403 Forbidden
-Server: Cowboy
-Connection: keep-alive
-X-Powered-By: Express
-Content-Type: text/plain; charset=utf-8
-Content-Length: 9
-Etag: W/"9-PatfYBLj4Um1qTm5zrukoLhNyPU"
-Date: Sat, 30 Oct 2021 04:15:27 GMT
-Via: 1.1 vegur
-
-Forbidden
-]]></system-out>
-  </testcase>
-  <testcase name="validateErrorBookingUpdateInvalidToken" classname="br.com.restassuredapitesting.tests.booking.tests.PutBookingTest" time="3.134"/>
-  <testcase name="validateErrorInvalidBookingUpdate" classname="br.com.restassuredapitesting.tests.booking.tests.PutBookingTest" time="3.915"/>
-  <testcase name="validateBookingUpdateBasicAuthParameter" classname="br.com.restassuredapitesting.tests.booking.tests.PutBookingTest" time="3.076"/>
-  <testcase name="validateBookingUpdateTokenParameter" classname="br.com.restassuredapitesting.tests.booking.tests.PutBookingTest" time="3.869"/>
-  <testcase name="validateBookingDeleteUsingBasicAuth" classname="br.com.restassuredapitesting.tests.booking.tests.DeleteBookingTest" time="1.597"/>
-  <testcase name="deleteBooking" classname="br.com.restassuredapitesting.tests.booking.tests.DeleteBookingTest" time="2.294"/>
-  <testcase name="validateErrorBookingDeleteInvalidToken" classname="br.com.restassuredapitesting.tests.booking.tests.DeleteBookingTest" time="3.045"/>
-  <testcase name="deleteInvalidBookingError" classname="br.com.restassuredapitesting.tests.booking.tests.DeleteBookingTest" time="3.814"/>
-  <testcase name="createNewBooking" classname="br.com.restassuredapitesting.tests.booking.tests.PostBookingTest" time="0.818"/>
-  <testcase name="createNewBookingTwice" classname="br.com.restassuredapitesting.tests.booking.tests.PostBookingTest" time="1.585"/>
-  <testcase name="validateCreateBookingErrorWrongHeader" classname="br.com.restassuredapitesting.tests.booking.tests.PostBookingTest" time="0.811"/>
-  <testcase name="validateErrorCreateBookingInvalidPayload" classname="br.com.restassuredapitesting.tests.booking.tests.PostBookingTest" time="0.991"/>
-  <testcase name="validateCreateNewBookingWithExtraParameter" classname="br.com.restassuredapitesting.tests.booking.tests.PostBookingTest" time="0.8">
-    <failure message="1 expectation failed.&#10;JSON path booking doesn&apos;t match.&#10;Expected: map containing [&quot;campo 1&quot;-&gt;ANYTHING]&#10;  Actual: {firstname=Stephani, additionalneeds=Breakfast, bookingdates={checkin=2018-01-01, checkout=2019-01-01}, totalprice=111, depositpaid=true, lastname=Pouros}&#10;" type="java.lang.AssertionError">java.lang.AssertionError: 
-1 expectation failed.
-JSON path booking doesn't match.
-Expected: map containing ["campo 1"->ANYTHING]
-  Actual: {firstname=Stephani, additionalneeds=Breakfast, bookingdates={checkin=2018-01-01, checkout=2019-01-01}, totalprice=111, depositpaid=true, lastname=Pouros}
-
-	at br.com.restassuredapitesting.tests.booking.tests.PostBookingTest.validateCreateNewBookingWithExtraParameter(PostBookingTest.java:64)
-</failure>
-    <system-out><![CDATA[HTTP/1.1 200 OK
-Server: Cowboy
-Connection: keep-alive
-X-Powered-By: Express
-Content-Type: application/json; charset=utf-8
-Content-Length: 202
-Etag: W/"ca-VSKFNCkueR/lHwHLYpSvVqJa0+o"
-Date: Sat, 30 Oct 2021 04:16:03 GMT
-Via: 1.1 vegur
-
-{
-    "bookingid": 258,
-    "booking": {
-        "firstname": "Stephani",
-        "lastname": "Pouros",
-        "totalprice": 111,
-        "depositpaid": true,
-        "bookingdates": {
-            "checkin": "2018-01-01",
-            "checkout": "2019-01-01"
-        },
-        "additionalneeds": "Breakfast"
-    }
-}
 ]]></system-out>
   </testcase>
 </testsuite>

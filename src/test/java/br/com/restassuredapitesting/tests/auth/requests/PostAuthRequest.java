@@ -7,7 +7,7 @@ import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
-public class PostAuthRequest {
+public  class PostAuthRequest {
     AuthPayloads authPayloads = new AuthPayloads();
 
     @Step("Retorna o Token")
