@@ -1,5 +1,6 @@
 ﻿# TreinamentoAutomcaoAPI
 Get
+
 Tarefa: Verificar se a API está online
 •	O status code retornado é 201 Created, mas como nada é criado o retorno deveria ser 200 OK.
 
@@ -22,6 +23,7 @@ Tarefa: Validar o retorno da pesquisa utilizando o parâmetro checkout duas veze
 •	O status code retornado é 500 Internal Server Error, mas por ser uma requisição errada do usuário, se encaixaria melhor o status code 400 Bad Request. Como a documentação informa que a busca por checkout retorna datas maiores ou iguais a informada, caso necessário, poderia ser implementado a busca somente pela menor data informada.
 
 Delete
+
 Tarefa: Validar erro na exclusão ao utilizar ID inválido
 •	O status code retornado é 405 Method Not Allowed, mas como a requisição é por um ID que não existe o status code retornado deveria ser 404 not found.
 
@@ -32,6 +34,7 @@ Tarefa: Validar exclusão da reserva no booking com parâmetro Basic Auth
 •	O status code retornado é 201 Created, porém nessa situação se encaixaria melhor o status code 200 OK, já que nada é criado.
 
 Post
+
 Tarefa: Criar uma reserva com mais parâmetros
 •	O status code retornado é 200 OK, mas cria a reserva somente com os parâmetros definidos na documentação, os parâmetros adicionais são ignorados.
 
@@ -42,9 +45,11 @@ Tarefa: Validar erro ao criar reserva com payload inválido
 •		O status code retornado é 500 Internal Server Error, porém se tratando de um erro do usuário o mais correto seria o retorno 400 Bad Request.
 
 Put
+
 Tarefa: Alterar uma reserva inexistente
 •	O status code retornado é 405 Method Not Allowed, mas por tratar de algo que não existe, deveria retornar 404 not found.
 
 Observações
+
 •	Na documentação da API está escrito Authorisation, o que está errado, o correto é Authorization.
 •	Como mencionado anteriormente o filtro checkin está retornando somente datas maiores do que a informada e consta na documentação que o retorno deveria apresentar datas maiores ou iguais.
